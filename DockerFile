@@ -1,3 +1,0 @@
-FROM microbox/node-url-to-pdf-api:last
-
-RUN apt-get -y install ttf-wqy-microhei
