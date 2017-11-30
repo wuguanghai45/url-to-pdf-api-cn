@@ -16,10 +16,11 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
     && chown -R pptruser:pptruser /home/pptruser
 
-USER pptruser
 
 ADD url-to-pdf /home/pptruser/app
 RUN cd /home/pptruser/app && npm install
+
+USER pptruser
 
 ENV PUPPETEER_CHROMIUM_PATH google-chrome-unstable
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
