@@ -2,6 +2,14 @@ version: "2"
 
 services:
   main:
+    #image: wuguanghai45/url-to-pdf-api-cn
     build: .
     ports:
-      - "1080:80"
+      - "1080:9000"
+    #volumes:
+      #- "/Users/admin/projects/url-to-pdf-api-cn/url-to-pdf/src/core:/home/pptruser/app/src/core"
+    environment:
+      - ALLOW_HTTP=true
+    cap_add:
+      - SYS_ADMIN
+
