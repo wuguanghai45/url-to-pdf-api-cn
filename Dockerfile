@@ -1,8 +1,9 @@
-From microbox/node-url-to-pdf-api
+From node:9.2-slim
 
 RUN apt-get update && apt-get -y install ttf-wqy-microhei && rm -rf /var/lib/apt/lists/*
+ADD url-to-pdf /root/app
 
-RUN rm -rf /root/node_modules && rm /root/package.json
-ADD url-to-pdf/node_modules /root/node_modules
-ADD url-to-pdf/package.json /root/package.json
+RUN cd /root/app && npm install
 
+WORKDIR /root/app
+CMD [ "npm", "start"]
