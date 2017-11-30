@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
 RUN cd /root/app && npm install
 
 ENV PUPPETEER_CHROMIUM_PATH google-chrome-unstable
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 WORKDIR /root/app
 CMD [ "npm", "start"]
