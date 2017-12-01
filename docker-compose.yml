@@ -2,7 +2,7 @@ version: "2"
 
 services:
   main:
-    #image: wuguanghai45/url-to-pdf-api-cn
+    #image: microbox/node-url-to-pdf-api
     build: .
     ports:
       - "1080:9000"

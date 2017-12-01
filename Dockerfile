@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y wget ttf-wqy-microhei --no-install-reco
 
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser/
+    && chown -R pptruser:pptruser /home/pptruser/ \
+    && setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/node
 
 ADD url-to-pdf /home/pptruser/app
 
@@ -24,5 +25,6 @@ USER pptruser
 
 ENV PUPPETEER_CHROMIUM_PATH google-chrome-unstable
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV PORT 80
 
-CMD [ "npm", "start"]
+CMD [ "node", "src/index"]
